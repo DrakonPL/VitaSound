@@ -70,13 +70,13 @@ void init_stuff()
 	
 	//load sound
 	//stream ogg from file as background soud - only 1 background sound possible
-	LoadOgg(&_audio, "cache0:/VitaDefilerClient/Documents/music.ogg", AUDIO_OUT_BGM,0);
+	//LoadOgg(&_audio, "cache0:/VitaDefilerClient/Documents/music.ogg", AUDIO_OUT_BGM,0);
 	
 	//stream wav from file as main sound - 8 sounds possible
 	//LoadWav(&_audio, "cache0:/VitaDefilerClient/Documents/music.wav", AUDIO_OUT_MAIN,0);
 	
 	//load wav from to memory and play as main sound - 8 sounds possible
-	//LoadWav(&_audio, "cache0:/VitaDefilerClient/Documents/organ.wav", AUDIO_OUT_MAIN,1);
+	LoadWav(&_audio, "cache0:/VitaDefilerClient/Documents/organ.wav", AUDIO_OUT_MAIN,1);
 	
 	//play sound
 	PlayAudio(&_audio);

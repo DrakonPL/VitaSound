@@ -280,13 +280,9 @@ static int32_t readThread(uint32_t args, void *argc)
 						goto term;
 					}
 
-					memcpy(audioHandler->readBuf, audioHandler->fillBuf + readPosition, capacity);
-					readPosition += capacity;
-
-
-					SetBufferData(audioHandler->fileBuffer, audioHandler->readBuf, capacity);
-					
+					SetBufferData(audioHandler->fileBuffer, audioHandler->fillBuf + readPosition, capacity);					
 					readSize -= capacity;
+					readPosition += capacity;
 				}
 
 				sceKernelDelayThread(1000);
@@ -771,7 +767,7 @@ int32_t LoadWav(AudioHandler* audioHandler, char* filename, SceUInt32 mode, SceU
 			goto error;
 		}
 
-		ret = sceIoRead(audioHandler->fileHandle, audioHandler->readBuf, dataSize);
+		ret = sceIoRead(audioHandler->fileHandle, audioHandler->fillBuf, dataSize);
 
 		if (ret < 0)
 		{
